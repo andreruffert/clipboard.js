@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>clipboard.js</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400">
+  <style>
+    body {
+      color: #757575;
+      font: 14px/1.4 'Roboto','Helvetica','Arial', sans-serif;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    a {
+      color: rgba(117, 117, 117, 0.5);
+      transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    a:hover {
+      color: #3f51b5;
+    }
+
+    hr {
+      height: 4px;
+      padding: 0;
+      margin: 16px 0;
+      background-color: rgba(117, 117, 117, 0.1);
+      border: 0 none;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      font-weight: 300;
+    }
+
+    textarea {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 2px;
+      padding: .5em;
+      resize: none;
+    }
+    textarea:focus {
+      outline: 1px solid #3f51b5;
+    }
+
+    button {
+      background: 0;
+      border: 0;
+      border-radius: 2px;
+      color: #3f51b5;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      height: 36px;
+      padding: 0 .5em;
+      text-transform: uppercase;
+      text-align: center;
+      transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      line-height: 36px;
+      vertical-align: middle;
+      outline: 0;
+    }
+    button:hover {
+      background-color: rgba(158, 158, 158, 0.2);
+    }
+    button:active {
+      background-color: rgba(158, 158, 158, 0.4);
+    }
+
+    .shaded {
+      background: #3f51b5;
+      color: white;
+      padding: 0 .5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Copy to the clipboard with JavaScript <b>\o/</b></h1>
+
+  <textarea id="js-copytextarea" cols="30">Hello, I'm some textarea text.</textarea>
+  <br>
+  <button data-clipboard="copy" data-copy-element="#js-copytextarea">Copy Textarea</button>
+  <br>
+  <hr>
+  <br>
+  <span id="js-copyinlinetext" class="shaded">Hello, I'm some inline text</span>
+  <br>
+  <button data-clipboard="copy" data-copy-element="#js-copyinlinetext">Copy inline text</button>
+
+  <script src="../clipboard.js"></script>
+  <script>
+  (function() {
+    // forEach over the qSA result, directly.
+    NodeList.prototype.__proto__ = Array.prototype;
+
+    document.querySelectorAll('[data-clipboard]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var element = document.querySelector(this.getAttribute('data-copy-element'));
+        var cmd = this.getAttribute('data-clipboard');
+
+        clipboard(element, cmd, function(err, copiedText) {
+          if (err) {
+            console.log(err);
+            return;
+          }
+          console.log(copiedText);
+        });
+      }, false);
+    });
+  })();
+  </script>
+</body>
+</html>
