@@ -24,12 +24,12 @@ clipboard(myElement, 'copy', function(err, copiedText) {
 var myFormElement = document.querySelector('.myFormElement');
 
 clipboard(myFormElement, 'cut');
-//=> 'Some text in the form element'
+//=> 'Value from the form element'
 
 clipboard(myFormElement, 'cut', function(err, copiedText) {
 	//...
 });
-//=> 'Some text in the form element'
+//=> 'Value from the form element'
 ```
 
 ## API
