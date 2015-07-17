@@ -1,7 +1,7 @@
 {
   "name": "clipboard.js",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.0-alpha",
+  "description": "A simple wrapper to handle clipboard data with JavaScript in the browser.",
   "main": "clipboard.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +13,8 @@
   "keywords": [
     "clipboard",
     "cut",
-    "copy"
+    "copy",
+    "browser"
   ],
   "author": "André Ruffert",
   "license": "MIT",
