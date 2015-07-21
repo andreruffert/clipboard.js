@@ -1,6 +1,8 @@
-# clipboard.js
+# clipboard.js (beta)
 
 > Copy to the clipboard with JavaScript \o/
+
+This is a work in progress so the exported functions could change at any time before the first stable release (1.0.0).
 
 ## Browser Support
 * IE10+ (although [this document](https://msdn.microsoft.com/en-us/library/ms537834(v=vs.85).aspx) indicates some support was there from IE5.5+).
